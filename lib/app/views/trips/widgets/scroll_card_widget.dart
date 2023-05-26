@@ -1,4 +1,4 @@
-import 'package:buss_app/app/views/travel_view/widgets/scroll_card.dart';
+import 'package:buss_app/app/views/trips/widgets/scroll_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

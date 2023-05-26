@@ -25,7 +25,6 @@ class CustomCard extends StatelessWidget {
           ),
         ),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,8 +32,6 @@ class CustomCard extends StatelessWidget {
               textBaseline: TextBaseline.ideographic,
               children: [
                 Row(
-                  // crossAxisAlignment: CrossAxisAlignment.baseline,
-                  // textBaseline: TextBaseline.ideographic,
                   children: [
                     SvgPicture.asset(
                       'assets/icons/circle-point.svg',

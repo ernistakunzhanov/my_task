@@ -1,299 +1,255 @@
 import 'package:buss_app/app/constants/text_styles/app_text_styles.dart';
+import 'package:buss_app/app/views/booking/booking_seat_view.dart';
+import 'package:buss_app/app/views/booking/widgets/app_bar_booking_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class BookingView extends StatefulWidget {
+class BookingView extends StatelessWidget {
   const BookingView({Key? key}) : super(key: key);
 
-  @override
-  _BookingViewState createState() => _BookingViewState();
-}
-
-class _BookingViewState extends State<BookingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Row(
+        title: const AppBarBookingWidget(),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 24,
+          right: 24,
+          top: 18,
+          bottom: 18,
+        ),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Color(0xff22BB9C),
-                  ),
-                ),
-                const SizedBox(width: 13.94),
                 const Text(
-                  "Бронироване",
+                  "14 мая 2023",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: Color(0xff171716),
                   ),
                 ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      body: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (BuildContext context, int index) {
-            return Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Container(
-                    height: 60,
-                    // width: MediaQuery.of(context).size.width * 100,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                        border: Border.all(
-                          color: const Color(0xffF5F5F5),
-                          width: 2,
-                        )),
-
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 8,
-                        bottom: 8,
-                        right: 16,
-                        left: 18,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Казань - Нижнекамск",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xff171716),
-                                ),
-                              ),
-                              Text(
-                                "14.05.2023, 1 пассажир, 514.80 ₽",
-                                style: AppTextStyles.grey12,
-                              ),
-                            ],
-                          ),
-                          const Icon(
-                            Icons.keyboard_arrow_down,
-                            color: Color(0xff22BB9C),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 30),
-                const Text(
-                  "Выберите места на схеме автобуса",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xffBDBDBD),
-                  ),
-                ),
-                const SizedBox(height: 4),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Автобус:",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff22BB9C),
-                      ),
-                    ),
-                    SizedBox(width: 6),
-                    Text(
-                      "ХЕНДАЙ (43)",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff515150),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 15.0),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 18,
-                      width: 18,
-                      decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(4),
-                          ),
-                          border: Border.all(
-                            color: const Color(0xff22BB9C),
-                          )),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text(
-                      "свободное",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff515150),
-                      ),
+                    SvgPicture.asset(
+                      'assets/icons/circle-point.svg',
                     ),
                     const SizedBox(width: 12),
-                    Container(
-                      height: 18,
-                      width: 18,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffEBEBEB),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(4),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text(
-                      "занятое",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff515150),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 30),
-                Container(
-                  height: 571,
-                  width: 295,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(40),
-                    ),
-                    border: Border.all(
-                      color: const Color(0xffDADADA),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 20,
-                    ),
-                    child: Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          'assets/images/car-steering-wheel.png',
+                        const Text(
+                          "Казань",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff171716),
+                          ),
                         ),
-                        const SizedBox(height: 20),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(
-                              width: 100,
-                              child: GridView.builder(
-                                shrinkWrap: true,
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                ),
-                                itemCount: 12,
-                                itemBuilder: (context, index) {
-                                  // final item = number[index];
-                                  return Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(4, 4, 4, 4),
-                                    child: Container(
-                                      width: 45,
-                                      height: 45,
-                                      color: Colors.teal,
-                                    ),
-                                  );
-                                },
-                              ),
+                            Text(
+                              "27 мая, 15:00",
+                              style: AppTextStyles.grey14,
                             ),
-                            SizedBox(
-                              width: 100,
-                              child: GridView.builder(
-                                shrinkWrap: true,
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                ),
-                                itemCount: 12,
-                                itemBuilder: (context, index) {
-                                  // final item = number[index];
-                                  return Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(4, 4, 4, 4),
-                                    child: Container(
-                                      width: 45,
-                                      height: 45,
-                                      color: Colors.teal,
-                                    ),
-                                  );
-                                },
-                              ),
+                            const SizedBox(width: 5),
+                            SvgPicture.asset(
+                              'assets/icons/dot.svg',
+                              height: 5,
+                              width: 5,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              "Автовокзал",
+                              style: AppTextStyles.grey14,
                             ),
                           ],
                         ),
                       ],
                     ),
+                  ],
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 8.5),
+                  alignment: Alignment.centerLeft,
+                  height: 30,
+                  child: SvgPicture.asset(
+                    'assets/icons/line3.svg',
                   ),
                 ),
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/circle-point.svg',
+                    ),
+                    const SizedBox(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Нижнекамск",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff171716),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "28 мая, 15:00",
+                              style: AppTextStyles.grey14,
+                            ),
+                            const SizedBox(width: 5),
+                            SvgPicture.asset(
+                              'assets/icons/dot.svg',
+                              height: 5,
+                              width: 5,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              "Автовокзал",
+                              style: AppTextStyles.grey14,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/empty-wallet.svg',
+                          width: 16,
+                          height: 16,
+                        ),
+                        const SizedBox(width: 12),
+                        const Text(
+                          "Всего за 1 пассажира:",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff515150),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Text(
+                      "514.80 ₽",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff22BB9C),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 35),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/bus.svg',
+                          width: 32,
+                          height: 32,
+                        ),
+                        const SizedBox(width: 16.25),
+                        const Text(
+                          "ООО “БУРЕВЕСТНИК”",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff515150),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: Color(0xffBDBDBD),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 35),
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/wifi-off.svg',
+                      width: 16,
+                      height: 16,
+                    ),
+                    const SizedBox(width: 16.25),
+                    const Text(
+                      "Нет Wi-Fi",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xffBDBDBD),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 15),
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/plug-2.svg',
+                      width: 16,
+                      height: 16,
+                    ),
+                    const SizedBox(width: 16.25),
+                    const Text(
+                      "Нет розеток у каждого кресла",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xffBDBDBD),
+                      ),
+                    ),
+                  ],
+                ),
               ],
-            );
-          }),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
-          left: 24,
-          right: 24,
-          bottom: 20,
-        ),
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xff22BB9C),
-            fixedSize: const Size(327, 55),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
             ),
-          ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Выбрано место: 4",
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BookingSeatView(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff22BB9C),
+                fixedSize: Size(MediaQuery.of(context).size.width * 0.9, 55),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                "Продолжить",
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                   color: Color(0xffffffff),
                 ),
               ),
-              Text(
-                "Далее",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xffffffff),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

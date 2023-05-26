@@ -1,16 +1,17 @@
 import 'package:buss_app/app/constants/text_styles/app_text_styles.dart';
-import 'package:buss_app/app/views/travel_view/widgets/scroll_card_widget.dart';
+import 'package:buss_app/app/views/booking/booking_seat_view.dart';
+import 'package:buss_app/app/views/trips/widgets/scroll_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class TravelView extends StatefulWidget {
-  const TravelView({Key? key}) : super(key: key);
+class TripsView extends StatefulWidget {
+  const TripsView({Key? key}) : super(key: key);
 
   @override
-  State<TravelView> createState() => _TravelViewState();
+  State<TripsView> createState() => _TripsViewState();
 }
 
-class _TravelViewState extends State<TravelView> {
+class _TripsViewState extends State<TripsView> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -289,7 +290,14 @@ class _TravelViewState extends State<TravelView> {
             ),
             const SizedBox(height: 15),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BookingSeatView(),
+                  ),
+                );
+              },
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -310,52 +318,6 @@ class _TravelViewState extends State<TravelView> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-            activeIcon: Icon(
-              Icons.search_rounded,
-              color: Color(0xff22BB9C),
-              size: 25,
-            ),
-            icon: Icon(
-              Icons.search_rounded,
-              color: Color(0xff515150),
-              size: 25,
-            ),
-            label: 'Поиск',
-          ),
-          BottomNavigationBarItem(
-            activeIcon: SvgPicture.asset(
-              'assets/icons/add-circle.svg',
-              color: const Color(0xff22BB9C),
-            ),
-            icon: SvgPicture.asset('assets/icons/add-circle.svg'),
-            label: 'Создать',
-          ),
-          BottomNavigationBarItem(
-            activeIcon: SvgPicture.asset(
-              'assets/icons/car.svg',
-              color: const Color(0xff22BB9C),
-            ),
-            icon: SvgPicture.asset('assets/icons/car.svg'),
-            label: 'Поездки',
-          ),
-          BottomNavigationBarItem(
-            activeIcon: SvgPicture.asset(
-              'assets/icons/user.svg',
-              color: const Color(0xff22BB9C),
-            ),
-            icon: SvgPicture.asset('assets/icons/user.svg'),
-            label: 'Профиль',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xff22BB9C),
-        showUnselectedLabels: true,
-        unselectedItemColor: const Color(0xff515150),
-        onTap: _onItemTapped,
       ),
     );
   }
